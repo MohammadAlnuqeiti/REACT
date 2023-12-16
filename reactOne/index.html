@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>react js</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+
+    <script type="text/babel">
+
+// JSXمهم جدا عند استخدام ال  babel ال 
+
+
+        const ele1 = <p> hello react </p>;
+
+
+// JSX  هاي الطريقة في حال ما استخدمت ال
+
+
+        const ele3 = React.createElement(
+
+        'p',
+        {className:'test',id:'data'},
+        'hello mohammad',
+
+        )
+
+
+// JSX
+
+
+        const ele2 = (
+            <p className="test">
+                <span>
+                    span1
+                </span>
+                <i>
+                    italic
+                </i>
+            </p>
+        )
+
+//class عن طريق ال   component لتعريف ال 
+
+// App component {Parent component}
+        class App extends React.Component{
+            state={
+                parent:"app is parent"
+            }
+            render(){
+                return(
+
+                <div>
+                    <Header title="Header" name={this.state.parent}/>
+                    <Content title="Content"/>
+                    <Footer title="Footer"/>
+                </div>
+            
+                )
+            }
+        }
+// child component
+        class Header extends React.Component {
+            render(){
+                return(
+                    <header>{this.props.title} and state : {this.props.name}</header>
+                )
+            }
+        }
+// functionعبارة عن component  بقدر استخدم هاي الطريقة بما انه ال
+        // function Header(props){
+        //     return(
+        //         <header>this is header {props.title}</header>
+        //     )
+
+        // }
+        class Content extends React.Component {
+            render(){
+                return(
+                    <main>{this.props.title}</main>
+                    // <main>Content</main>
+                )
+            }
+        }
+        class Footer extends React.Component {
+            render(){
+                return(
+                    <footer>{this.props.title}</footer>
+                    // <footer>Footer</footer>
+                )
+            }
+        }
+
+        ReactDOM.render(ele3,document.getElementById('app'));
+        ReactDOM.render(<App/>,document.getElementById('app'));
+    </script>
+</body>
+</html>
